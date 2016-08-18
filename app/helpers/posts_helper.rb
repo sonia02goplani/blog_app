@@ -1,5 +1,4 @@
 module PostsHelper
 
-	
 
 end
