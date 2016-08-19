@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :users
+  devise_for :users, controllers: { registrations: 'users/registrations'  }
+  devise_scope :user do  
+   get '/users/sign_out' => 'devise/sessions#destroy'     
+end
+  resources :users,except: [:destroy, :show]
   
   resources :posts 
   root to: 'users#home'
